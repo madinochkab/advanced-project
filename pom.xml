@@ -6,12 +6,15 @@
   <name>Basic project</name>
   <description>An application for first project2</description>
    <dependencies>
+
   <dependency>
-   <groupId>junit</groupId>
-   <artifactId>junit</artifactId>
-   <version>4.12</version>
-   <scope>test</scope>
-  </dependency>
+	<groupId>org.testng</groupId>
+	<artifactId>testng</artifactId>
+	<version>6.8.21</version>
+	<scope>test</scope>
+</dependency>
+
+  
  </dependencies>
  <build>
   <plugins>

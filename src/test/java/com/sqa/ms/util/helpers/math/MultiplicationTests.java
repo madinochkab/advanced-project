@@ -10,14 +10,14 @@
 
 package com.sqa.ms.util.helpers.math;
 
-import java.util.*;
+import static org.testng.Assert.assertEquals;
 
-import org.junit.*;
-import org.junit.runner.*;
-import org.junit.runners.*;
-import org.junit.runners.Parameterized.*;
+import java.util.Arrays;
 
-import com.sqa.ms.util.helpers.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.sqa.ms.util.helpers.MyMath;
 
 /**
  * MyMathTests //ADDD (description of class)
@@ -31,13 +31,13 @@ import com.sqa.ms.util.helpers.*;
  * @since 1.0
  *
  */
-@RunWith(Parameterized.class)
+
 public class MultiplicationTests {
 	/**
 	 * @return
 	 */
 	// creating data set
-	@Parameters
+	@DataProvider(name = "mult Data")
 	public static Object[][] getData() {
 		Object[][] data = { { new double[] { 2.0, 3.0, 4.0, 2.0 }, 48.0 }, { new double[] { 2.0, 1.0, 5.0 }, 10.0 },
 				{ new double[] { 3.0, 1.5, }, 4.5 }, { new double[] { 0.0, 5.0, 15.0, 10.0 }, 0.0 },
@@ -47,28 +47,14 @@ public class MultiplicationTests {
 
 	}
 
-	private double expectedResult;
-
-	private double num;
-	private double[] numbers;
-	private double power;
-
 	/**
-	 * @param num
-	 * @param power
+	 * @param numbers
 	 * @param expectedResult
 	 */
-	public MultiplicationTests(double[] numbers, double expectedResult) {
-		// super();
-		this.numbers = numbers;
-		// this.power = power;
-		this.expectedResult = expectedResult;
-	}
-
-	@Test
-	public void testMultiplication() {
-		double actualResult = MyMath.multNumbers(this.numbers);
-		String numbersString = Arrays.toString(this.numbers);
+	@Test(dataProvider = "mult Data")
+	public void testMultiplication(double[] numbers, double expectedResult) {
+		double actualResult = MyMath.multNumbers(numbers);
+		String numbersString = Arrays.toString(numbers);
 		// error message to only highlight failed test cases
 		String errorMessage = String.format(
 				"Error. The result of multilying all numbers %s is actually  %.2f not expected ", numbersString,
@@ -78,7 +64,9 @@ public class MultiplicationTests {
 		String message = String.format("the result of multilying all members %s together is %.2f ", numbersString,
 				actualResult);
 		System.out.println(message);
-		Assert.assertEquals(errorMessage, this.expectedResult, actualResult, 0);
+		// testng differetnt order : actual, expected, delta, message
+		assertEquals(actualResult, expectedResult, 0, message);
+
 	}
 
 }

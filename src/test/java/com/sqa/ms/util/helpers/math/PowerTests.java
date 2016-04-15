@@ -10,12 +10,16 @@
 
 package com.sqa.ms.util.helpers.math;
 
-import org.junit.*;
-import org.junit.runner.*;
-import org.junit.runners.*;
-import org.junit.runners.Parameterized.*;
+import static org.testng.Assert.assertEquals;
 
-import com.sqa.ms.util.helpers.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+//import org.junit.*;
+//import org.junit.runner.*;
+//import org.junit.runners.*;
+//import org.junit.runners.Parameterized.*;
+import com.sqa.ms.util.helpers.MyMath;
 
 /**
  * MyMathTests //ADDD (description of class)
@@ -29,13 +33,14 @@ import com.sqa.ms.util.helpers.*;
  * @since 1.0
  *
  */
-@RunWith(Parameterized.class)
+
 public class PowerTests {
+
 	/**
 	 * @return
 	 */
 	// creating data set
-	@Parameters
+	@DataProvider
 	public static Object[][] getData() {
 		Object[][] data = { { 2.0, 2.0, 4.0 }, { 5.0, 2.0, 25.0 }, { 4.0, 3.0, 64.0 }, { 1.0, 0.0, 1.0 },
 				{ 3.0, 1.0, 3.0 }, { 2.0, 1.5, 4.0 }
@@ -45,26 +50,8 @@ public class PowerTests {
 
 	}
 
-	private double expectedResult;
-	// private double expectedResult;
-	private double num;
+	@Test(enabled = false)
 
-	private double power;
-
-	/**
-	 * @param num
-	 * @param power
-	 * @param expectedResult
-	 */
-	public PowerTests(double num, double power, double expectedResult) {
-		super();
-		this.num = num;
-		this.power = power;
-		this.expectedResult = expectedResult;
-	}
-
-	@Test
-	@Ignore
 	public void divideNumbers() {
 		double expectedResult;
 		double num1 = 10;
@@ -76,8 +63,8 @@ public class PowerTests {
 
 	}
 
-	@Test
-	@Ignore
+	@Test(enabled = false)
+
 	public void hasCleanDivision() {
 		boolean result;
 		double num1 = 3;
@@ -88,7 +75,7 @@ public class PowerTests {
 	}
 
 	@Test
-	@Ignore
+
 	public void mulNumbersTest() {
 		double result;
 
@@ -97,16 +84,15 @@ public class PowerTests {
 
 	}
 
-	@Test
-	public void powerNumber() {
+	@Test(dataProvider = "getData")
+	public void powerNumber(double num, double power, double expectedResult) {
 		double actualResult;
-		double expectedResult = this.expectedResult;
-		double num = this.num;
-		double power = this.power;
+
 		actualResult = MyMath.powerNumber(num, power);
 		String message = String.format("the result of %.0f to the power of %.0f is %.2f", num, power, actualResult);
 		System.out.println(message);
-		Assert.assertEquals(message, expectedResult, actualResult, 0);
+		// testng differetnt order : actual, expected, delta, message
+		assertEquals(actualResult, expectedResult, 0, message);
 	}
 
 	// @Test
@@ -114,8 +100,7 @@ public class PowerTests {
 	// double result = 0;
 	// System.out.println(String.format("the result ", result));
 	// }
-	@Test
-	@Ignore
+	@Test(enabled = false)
 	public void resetTest() {
 
 		double result = 20;
@@ -125,8 +110,8 @@ public class PowerTests {
 		System.out.println(String.format("Resetted result is equl %.0f", myMath.getTotal()));
 	}
 
-	@Test
-	@Ignore
+	@Test(enabled = false)
+
 	public void testAddAndSubstract() {
 		double addNumber = 10;
 		double subNumber = 3;
@@ -140,8 +125,8 @@ public class PowerTests {
 				addNumber, subNumber, result));
 	}
 
-	@Test
-	@Ignore
+	@Test(enabled = false)
+
 	public void testDiv() {
 		double divNumber = 5;
 		double result = 20;
@@ -155,8 +140,8 @@ public class PowerTests {
 
 	}
 
-	@Test
-	@Ignore
+	@Test(enabled = false)
+
 	public void testMyMult() {
 
 		double multNumber = 2;

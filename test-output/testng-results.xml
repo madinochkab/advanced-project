@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="151" started-at="2016-04-15T04:19:24Z" finished-at="2016-04-15T04:19:25Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="151" started-at="2016-04-15T04:19:24Z" finished-at="2016-04-15T04:19:25Z">
+      <class name="com.sqa.ms.util.helpers.math.MultiplicationTests">
+        <test-method status="PASS" signature="testMultiplication([D, double)[pri:0, instance:com.sqa.ms.util.helpers.math.MultiplicationTests@10867c21]" name="testMultiplication" duration-ms="28" started-at="2016-04-14T21:19:24Z" data-provider="mult Data" finished-at="2016-04-14T21:19:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[D@52e3d345]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[48.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplication -->
+        <test-method status="PASS" signature="testMultiplication([D, double)[pri:0, instance:com.sqa.ms.util.helpers.math.MultiplicationTests@10867c21]" name="testMultiplication" duration-ms="5" started-at="2016-04-14T21:19:24Z" data-provider="mult Data" finished-at="2016-04-14T21:19:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[D@6b438186]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[10.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplication -->
+        <test-method status="PASS" signature="testMultiplication([D, double)[pri:0, instance:com.sqa.ms.util.helpers.math.MultiplicationTests@10867c21]" name="testMultiplication" duration-ms="6" started-at="2016-04-14T21:19:24Z" data-provider="mult Data" finished-at="2016-04-14T21:19:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[D@1cecbb6e]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[4.5]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplication -->
+        <test-method status="PASS" signature="testMultiplication([D, double)[pri:0, instance:com.sqa.ms.util.helpers.math.MultiplicationTests@10867c21]" name="testMultiplication" duration-ms="4" started-at="2016-04-14T21:19:24Z" data-provider="mult Data" finished-at="2016-04-14T21:19:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[D@7a054197]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[0.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplication -->
+        <test-method status="PASS" signature="testMultiplication([D, double)[pri:0, instance:com.sqa.ms.util.helpers.math.MultiplicationTests@10867c21]" name="testMultiplication" duration-ms="36" started-at="2016-04-14T21:19:24Z" data-provider="mult Data" finished-at="2016-04-14T21:19:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[D@6f155f16]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[90.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplication -->
+        <test-method status="PASS" signature="testMultiplication([D, double)[pri:0, instance:com.sqa.ms.util.helpers.math.MultiplicationTests@10867c21]" name="testMultiplication" duration-ms="5" started-at="2016-04-14T21:19:25Z" data-provider="mult Data" finished-at="2016-04-14T21:19:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[D@6415d653]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[0.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplication -->
+      </class> <!-- com.sqa.ms.util.helpers.math.MultiplicationTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
