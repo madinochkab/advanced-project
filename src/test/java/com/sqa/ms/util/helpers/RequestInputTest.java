@@ -10,9 +10,13 @@
 
 package com.sqa.ms.util.helpers;
 
-import java.util.*;
+import java.util.Scanner;
 
-import org.junit.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  * RequestInputTest //ADDD (description of class)
@@ -59,7 +63,7 @@ public class RequestInputTest {
 	 * @param question
 	 * @param userValue
 	 */
-	@Before
+	@BeforeMethod
 	public void clearVariables() {
 		userValue = "";
 		question = "";
@@ -69,7 +73,7 @@ public class RequestInputTest {
 	 * @param question
 	 * @param userValue
 	 */
-	@After
+	@AfterMethod
 	public void displayOutput() {
 		System.out.println("for the question \"" + question + "\" you have given the value of (" + userValue + ")");
 	}
@@ -91,8 +95,8 @@ public class RequestInputTest {
 	 * {@link com.sqa.ms.util.helpers.RequestInput#getChar(java.lang.String, char[])}
 	 * .
 	 */
-	@Test
-	@Ignore
+	@Test(enabled = false)
+
 	public void testGetCharStringCharArray() {
 		question = "please give me a char type in an array";
 		userValue = RequestInput.getChar(question);

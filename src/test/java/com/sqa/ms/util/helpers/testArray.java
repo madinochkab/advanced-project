@@ -10,7 +10,7 @@
 
 package com.sqa.ms.util.helpers;
 
-import org.junit.*;
+import org.testng.annotations.Test;
 
 /**
  * testArray //ADDD (description of class)

@@ -10,9 +10,9 @@
 
 package com.sqa.ms.util.helpers;
 
-import java.util.*;
+import java.util.Scanner;
 
-import org.junit.*;
+import org.testng.annotations.Test;
 
 /**
  * AppBasicsTests //ADDD (description of class)
@@ -32,34 +32,6 @@ public class AppBasicsTests {
 	static String userName;
 
 	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	/**
 	 * Test method for
 	 * {@link com.sqa.ms.util.helpers.AppBasics#farewellUser(java.lang.String, java.lang.String)}
 	 * .
@@ -71,7 +43,8 @@ public class AppBasicsTests {
 
 	/**
 	 * Test method for
-	 * {@link com.sqa.ms.util.helpers.AppBasics#welcomeUserAndGetUsersName(java.lang.String)}.
+	 * {@link com.sqa.ms.util.helpers.AppBasics#welcomeUserAndGetUsersName(java.lang.String)}
+	 * .
 	 */
 	@Test
 	public void testWelcomeUser() {

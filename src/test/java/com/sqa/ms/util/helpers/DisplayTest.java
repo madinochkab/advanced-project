@@ -10,7 +10,9 @@
 
 package com.sqa.ms.util.helpers;
 
-import org.junit.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 /**
  * DisplayTest //ADDD (description of class)
