@@ -38,6 +38,29 @@ public class MyMath {
 		return result;
 	}
 
+	// implement only here
+	public static boolean evalPrime(int numbers) {
+		// check if n is a multiple of 2
+		if (numbers == 2) {
+			return true;
+		} else if (numbers % 2 == 0) {
+			return false;
+		}
+		// if not, then just check the odds
+		for (int i = 3; i * i <= numbers; i += 2) {
+			if (numbers % i == 0)
+				return false;
+		}
+		return true;
+
+	}
+
+	// bonus
+	public static boolean[] evalPrimes(int... numbers) {
+		return null;
+
+	}
+
 	/**
 	 * @param num1
 	 * @param num2
@@ -115,6 +138,12 @@ public class MyMath {
 	public double div(double num) {
 		setResult(getResult() / num);
 		return getTotal();
+	}
+
+	public boolean evalPrime() {
+
+		return MyMath.evalPrime((int) getTotal());
+
 	}
 
 	/**

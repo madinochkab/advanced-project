@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.sqa.ms.util.helpers.math.MultiplicationTests">
+      <class name="com.sqa.ms.util.helpers.AutomationTest">
         <methods>
-          <include name="testMultiplication"/>
+          <include name="f" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- com.sqa.ms.util.helpers.math.MultiplicationTests -->
+      </class> <!-- com.sqa.ms.util.helpers.AutomationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
