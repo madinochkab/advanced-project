@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.sqa.ms.util.helpers.AutomationTest">
+      <class name="com.sqa.ms.moster.delete">
         <methods>
-          <include name="f" invocation-numbers="0 1"/>
+          <include name="testGoogleSearch"/>
         </methods>
-      </class> <!-- com.sqa.ms.util.helpers.AutomationTest -->
+      </class> <!-- com.sqa.ms.moster.delete -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
