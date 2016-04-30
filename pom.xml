@@ -4,8 +4,8 @@
   <groupId>com.sqa.ms</groupId>
   <artifactId>basic-auto-project</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Basic auto project</name>
-  <description>An application for basic-auto-project</description>
+  <name>adactin project</name>
+  <description>An application for adactin project</description>
   <dependencies>
 	<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
