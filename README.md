@@ -4,8 +4,8 @@
 Madina Siebenthal
 http://adactin.com/HotelApp/index.php
 
-Git
-Java 7
-Maven
-Selenium
-TestNG
+* Git
+* Java 7
+* Maven
+* Selenium
+* TestNG
