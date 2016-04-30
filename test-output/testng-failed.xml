@@ -3,12 +3,15 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.sqa.ms.LocatorTests">
+      <class name="com.sqa.ms.adactin">
         <methods>
-          <include name="test"/>
+          <include name="tc102" invocation-numbers="0"/>
+          <include name="afterClass"/>
           <include name="setupFirefox"/>
+          <include name="testLoginToBase2"/>
+          <include name="loadProperties"/>
         </methods>
-      </class> <!-- com.sqa.ms.LocatorTests -->
+      </class> <!-- com.sqa.ms.adactin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
