@@ -2,52 +2,64 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6636" started-at="2016-04-29T02:23:07Z" finished-at="2016-04-29T02:23:13Z">
+  <suite name="Default suite" duration-ms="7106" started-at="2016-05-01T00:41:24Z" finished-at="2016-05-01T00:41:31Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6636" started-at="2016-04-29T02:23:07Z" finished-at="2016-04-29T02:23:13Z">
-      <class name="com.sqa.ms.util.helpers.BasicAutomationTest">
-        <test-method status="PASS" signature="loadProperties()[pri:0, instance:com.sqa.ms.util.helpers.BasicAutomationTest@2ccddcf6]" name="loadProperties" is-config="true" duration-ms="22" started-at="2016-04-28T19:23:07Z" finished-at="2016-04-28T19:23:07Z">
+    <test name="Default test" duration-ms="7106" started-at="2016-05-01T00:41:24Z" finished-at="2016-05-01T00:41:31Z">
+      <class name="com.sqa.ms.BasicAutoTest">
+        <test-method status="PASS" signature="setupFirefox()[pri:0, instance:com.sqa.ms.BasicAutoTest@c299bbd]" name="setupFirefox" is-config="true" duration-ms="5717" started-at="2016-04-30T17:41:24Z" finished-at="2016-04-30T17:41:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loadProperties -->
-        <test-method status="PASS" signature="setUpTest()[pri:0, instance:com.sqa.ms.util.helpers.BasicAutomationTest@2ccddcf6]" name="setUpTest" duration-ms="6559" started-at="2016-04-28T19:23:07Z" finished-at="2016-04-28T19:23:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpTest -->
-        <test-method status="PASS" signature="f(java.lang.Integer, java.lang.String)[pri:0, instance:com.sqa.ms.util.helpers.BasicAutomationTest@2ccddcf6]" name="f" duration-ms="5" started-at="2016-04-28T19:23:13Z" data-provider="dp" finished-at="2016-04-28T19:23:13Z">
+        </test-method> <!-- setupFirefox -->
+        <test-method status="PASS" signature="test(java.lang.String, java.lang.String)[pri:0, instance:com.sqa.ms.BasicAutoTest@c299bbd]" name="test" duration-ms="524" started-at="2016-04-30T17:41:30Z" data-provider="UserAccountInfo" finished-at="2016-04-30T17:41:31Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[1]]>
+                <![CDATA[madinaseven123@gmail.com]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[a]]>
+                <![CDATA[madina261184]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
-        <test-method status="PASS" signature="f(java.lang.Integer, java.lang.String)[pri:0, instance:com.sqa.ms.util.helpers.BasicAutomationTest@2ccddcf6]" name="f" duration-ms="5" started-at="2016-04-28T19:23:13Z" data-provider="dp" finished-at="2016-04-28T19:23:13Z">
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="test(java.lang.String, java.lang.String)[pri:0, instance:com.sqa.ms.BasicAutoTest@c299bbd]" name="test" duration-ms="413" started-at="2016-04-30T17:41:31Z" data-provider="UserAccountInfo" finished-at="2016-04-30T17:41:31Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[2]]>
+                <![CDATA[madinaseven1234@gmail.com]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[b]]>
+                <![CDATA[madina261184]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
-      </class> <!-- com.sqa.ms.util.helpers.BasicAutomationTest -->
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="test(java.lang.String, java.lang.String)[pri:0, instance:com.sqa.ms.BasicAutoTest@c299bbd]" name="test" duration-ms="420" started-at="2016-04-30T17:41:31Z" data-provider="UserAccountInfo" finished-at="2016-04-30T17:41:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[madinaseven1234@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[madina261184]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+      </class> <!-- com.sqa.ms.BasicAutoTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
