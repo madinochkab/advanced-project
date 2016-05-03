@@ -14,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -60,6 +61,25 @@ public class adactin {
 
 	private String message = "succefull login";
 
+	By adultsPerRoom = By.cssSelector("adult_room");
+	By checkIn = By.cssSelector("#datepick_in");
+	By checkOut = By.cssSelector("#datepick_out");
+	By childPerRoom = By.cssSelector("#child_room");
+	By errorMEsCheckOut = By.cssSelector("#checkout_span");
+	By errorMesChekIn = By.cssSelector("#checkin_span");
+	String ErrorMessageBadRange = "range is bad, checkout date is prior check in";
+	By hotels = By.cssSelector("#hotels");
+	// test editing vars
+	By location = By.cssSelector("#location");
+	By loginBtn = By.cssSelector("#login");
+	By numOfRooms = By.cssSelector("room_nos");
+	By password = By.cssSelector("#password");
+	By resetBtn = By.cssSelector("#Reset");
+	By roomType = By.cssSelector("#room_type");
+	By submitBtn = By.cssSelector("#Submit");
+	By successLogin = By.cssSelector("#username_show");
+	By username = By.cssSelector("#username");
+
 	@AfterClass
 	public void afterClass() {
 	}
@@ -77,10 +97,18 @@ public class adactin {
 		//
 		System.out.println("test 3");
 		SelectElement();
+		// thiserrorMesChekIn
+		Assert.assertEquals("Check-In Date shall be before than Check-Out Date",
+				driver.findElement(this.errorMesChekIn).getText(), this.ErrorMessageBadRange);
+		System.out.println(this.ErrorMessageBadRange);
 
 	}
 
-	// @SuppressWarnings("null")
+	@Test(dataProvider = "UserAccountInfo", dependsOnMethods = "testLoginToBase2", priority = 4, enabled = false)
+	public void tc105(String username, String password) {
+
+	}
+
 	@Test(dataProvider = "UserAccountInfo", priority = 1)
 	public void testLogin(String username, String password) throws InterruptedException {
 		//// clickSigninBtn();
@@ -131,7 +159,33 @@ public class adactin {
 		System.out.println("assertion is " + this.message);
 	}
 
-	private void enterInvalidCheckIn() {
+	private int enterCheckIn(int daysFromToday) {
+		SimpleDateFormat checkIn = new SimpleDateFormat("dd/MM/yyyy");
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date()); // Now use today date.
+		c.add(Calendar.DATE, daysFromToday);
+		String dayToday = checkIn.format(c.getTime());
+		System.out.println(dayToday);
+		this.driver.findElement(this.checkIn).clear();
+		this.driver.findElement(this.checkIn).sendKeys(dayToday);
+		return daysFromToday;
+
+	}
+
+	private int enterCheckOut(int daysFromToday) {
+		SimpleDateFormat checkIn = new SimpleDateFormat("dd/MM/yyyy");
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date()); // Now use today date.
+		c.add(Calendar.DATE, daysFromToday);
+		String dayToday = checkIn.format(c.getTime());
+		System.out.println(dayToday);
+		this.driver.findElement(this.checkOut).clear();
+		this.driver.findElement(this.checkOut).sendKeys(dayToday);
+		return daysFromToday;
+
+	}
+
+	private void enterInValidCheckIn() {
 		SimpleDateFormat todayPlus7 = new SimpleDateFormat("dd/MM/yyyy");
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date()); // Now use today date.
@@ -164,13 +218,38 @@ public class adactin {
 		}
 	}
 
+	// selecting elements by css selector. 1st method
 	private void SelectElement() {
 
 		driver.findElement(By.cssSelector("#location>option:nth-of-type(2)")).click();
 		driver.findElement(By.cssSelector("#hotels>option:nth-of-type(2)")).click();
-		driver.findElement(By.cssSelector("#room_nos>option:nth-of-type(1)")).click();
+		driver.findElement(By.cssSelector("#room_type>option:nth-of-type(2)")).click();
+		enterInValidCheckIn();
+
+		driver.findElement(By.cssSelector("#room_nos>option:nth-of-type(2)")).click();
+		driver.findElement(By.cssSelector("#adult_room>option:nth-of-type(2)")).click();
+		driver.findElement(By.cssSelector("#Submit")).click();
 		// driver.findElement(By.cssSelector("#datepick_in")).sendKeys(toda);
 
+	}
+
+	// selecting elements by value, 2nd method
+	private void selectElementsOnSearchPage() {
+		selectOption(this.location, "Sydney");
+		selectOption(this.hotels, "Hotel Creek");
+		selectOption(this.roomType, "Standard");
+		// selectOption(this.checkIn, "");
+		enterCheckIn(2);
+		enterCheckOut(4);
+		selectOption(this.adultsPerRoom, "1 - One");
+		selectOption(this.childPerRoom, "1 - One");
+
+	}
+
+	private void selectOption(By locator, String value) {
+		Select fieldSelect = new Select(driver.findElement(locator));
+		System.out.println("Possible " + fieldSelect.getOptions());
+		fieldSelect.selectByValue(value);
 	}
 
 }
