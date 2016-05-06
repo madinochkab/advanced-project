@@ -10,8 +10,6 @@
 
 package com.sqa.ms.adactin;
 
-import org.apache.log4j.Logger;
-
 /**
  * BookedPage //ADDD (description of class)
  * <p>
@@ -25,6 +23,6 @@ import org.apache.log4j.Logger;
  *
  */
 public class BookedPage extends DefaultPage {
-	public static Logger logger = Logger.getLogger(BookedPage.class);
+	// public static Logger logger = Logger.getLogger(BookedPage.class);
 
 }

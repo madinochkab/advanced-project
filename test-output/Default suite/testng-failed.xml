@@ -5,8 +5,8 @@
     <classes>
       <class name="com.sqa.ms.adactin.TC102">
         <methods>
-          <include name="testCheckInOut"/>
-          <include name="setup"/>
+          <include name="testCheckInOut" invocation-numbers="1"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- com.sqa.ms.adactin.TC102 -->
     </classes>

@@ -10,8 +10,6 @@
 
 package com.sqa.ms.adactin;
 
-import org.apache.log4j.Logger;
-
 /**
  * ChangePasswordPage //ADDD (description of class)
  * <p>
@@ -25,6 +23,4 @@ import org.apache.log4j.Logger;
  *
  */
 public class ChangePasswordPage extends DefaultPage {
-	public static Logger logger = Logger.getLogger(ChangePasswordPage.class);
-
 }

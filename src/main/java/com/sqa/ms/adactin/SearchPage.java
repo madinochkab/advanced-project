@@ -10,8 +10,8 @@
 
 package com.sqa.ms.adactin;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -34,39 +34,51 @@ import com.sqa.ms.util.helpers.AutoBasicsNotInitializedException;
  */
 public class SearchPage extends DefaultPage {
 
-	public static Logger logger = Logger.getLogger(SearchPage.class);
-
 	@FindBy(id = "adult_room")
-	private Select adultsPerRoom;
+	private WebElement adultsPerRoom;
+
 	@FindBy(id = "datepick_in")
 	private WebElement checkIn;
+
 	@FindBy(id = "datepick_out")
 	private WebElement checkOut;
+
 	@FindBy(id = "child_room")
-	private Select childPerRoom;
+	private WebElement childPerRoom;
+
 	@FindBy(id = "checkout_span")
-	private WebElement errorMEsCheckOut;
+	private WebElement errorMesCheckOut;
+
 	@FindBy(id = "checkin_span")
 	private WebElement errorMesChekIn;
 
 	@FindBy(id = "hotels")
-	private Select hotels;
+	private WebElement hotels;
+
 	@FindBy(id = "location")
-	private Select location;
+	private WebElement location;
+
 	@FindBy(id = "login")
 	private WebElement loginBtn;
+
 	@FindBy(id = "room_nos")
-	private Select numOfRooms;
+	private WebElement numOfRooms;
+
 	@FindBy(id = "password")
 	private WebElement password;
+
 	@FindBy(id = "Reset")
 	private WebElement resetBtn;
+
 	@FindBy(id = "room_type")
-	private Select roomType;
+	private WebElement roomType;
+
 	@FindBy(id = "Submit")
 	private WebElement submitBtn;
+
 	@FindBy(id = "username_show")
 	private WebElement successLogin;
+
 	@FindBy(id = "username")
 	private WebElement username;
 
@@ -74,43 +86,132 @@ public class SearchPage extends DefaultPage {
 		PageFactory.initElements(getDriver(), SearchPage.class);
 	}
 
+	public SearchPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(getDriver(), this);
+	}
+
+	public SearchPage chooseCheckInDate(String date) {
+		this.checkIn.clear();
+		this.checkIn.sendKeys(date);
+		return this;
+	}
+
+	public SearchPage chooseCheckOutDate(String date) {
+		this.checkOut.clear();
+		this.checkOut.sendKeys(date);
+		return this;
+	}
+
 	public SearchPage chooseHotel(String hotelChoice) {
-		this.location.selectByValue(hotelChoice);
+		Select selectHotels = new Select(this.hotels);
+		selectHotels.selectByVisibleText(hotelChoice);
 		return this;
 	}
 
 	public SearchPage chooseLocation(String locationChoice) {
-		this.location.selectByValue(locationChoice);
+		Select selectLocation = new Select(this.location);
+		selectLocation.selectByVisibleText(locationChoice);
 		return this;
 	}
 
-	public SearchPage chooseNumOfChildren(String childPerRoom) {
-		this.childPerRoom.selectByValue(childPerRoom);
+	public SearchPage chooseNumAdultsInRoom(String numInRoom) {
+		Select selectAdultsPerRoom = new Select(this.adultsPerRoom);
+		selectAdultsPerRoom.selectByValue(numInRoom);
 		return this;
 	}
+
+	public SearchPage chooseNumChildrenInRoom(String numInRoom) {
+		Select selectChildrenPerRoom = new Select(this.childPerRoom);
+		selectChildrenPerRoom.selectByValue(numInRoom);
+		return this;
+	}
+
+	// public SearchPage chooseNumOfChildren(String numOfChildren) {
+	// Select selectNumOfChildren = new Select(this.childPerRoom);
+	// selectNumOfChildren.selectByValue(numOfChildren);
+	// return this;
+	// }
 
 	public SearchPage chooseNumOfRooms(String numRooms) {
-		this.numOfRooms.selectByValue(numRooms);
+		Select selectNumRooms = new Select(this.numOfRooms);
+		selectNumRooms.selectByValue(numRooms);
 		return this;
 	}
 
 	public SearchPage chooseRoomType(String roomType) {
-		this.roomType.selectByValue(roomType);
+		Select selectRoomType = new Select(this.roomType);
+		selectRoomType.selectByVisibleText(roomType);
 		return this;
 	}
 
-	public boolean hasWelcomeMsg() {
-		// return AutoBasics.isElementPresent(driver,
-		// By.cssSelector("td.welcome_menu"));
-		try {
-			AutoBasics.isElementPresent(getDriver(), By.cssSelector("td.welcome_menu"));
-			// new AutoBasics(driver);
-			return AutoBasics.isElementPresent(By.cssSelector("td.welcome_menu"));
-		} catch (AutoBasicsNotInitializedException e) {
-			// TODO Auto-generated catch block
-			logger.warn(e.getMessage() + getClass().getEnclosingMethod());
-			return false;
+	public String getCheckInErrorMessage() {
+		if (hasCheckInErrorMessage()) {
+			return this.errorMesChekIn.getText();
+
+		} else {
+			return "";
 		}
 	}
 
+	public String getCheckOutErrorMessage() {
+		if (hasCheckOutErrorMessage()) {
+			return this.errorMesCheckOut.getText();
+
+		} else {
+			return "";
+		}
+	}
+
+	public boolean hasCheckInErrorMessage() {
+		boolean hasMessage = false;
+		hasMessage = AutoBasics.isElementPresent(getDriver(), By.id("checkin_span"));
+		if (hasMessage) {
+			if (this.errorMesChekIn.getText().length() > 1) {
+				hasMessage = true;
+				System.out.println("Message:" + this.errorMesChekIn.getText());
+			} else {
+				hasMessage = false;
+			}
+		}
+		return hasMessage;
+	}
+
+	public boolean hasCheckOutErrorMessage() {
+		boolean hasMessage = false;
+		hasMessage = AutoBasics.isElementPresent(getDriver(), By.id("checkout_span"));
+		if (hasMessage) {
+			if (this.errorMesCheckOut.getText().length() > 1) {
+				hasMessage = true;
+				System.out.println("Message:" + this.errorMesCheckOut.getText());
+			} else {
+				hasMessage = false;
+			}
+		}
+		return hasMessage;
+	}
+
+	public boolean hasWelcomeMsg() {
+		try {
+			AutoBasics.isElementPresent(getDriver(), By.cssSelector("td.welcome_menu"));
+			return AutoBasics.isElementPresent(By.cssSelector("td.welcome_menu"));
+		} catch (AutoBasicsNotInitializedException e) {
+			// TODO Auto-generated catch block
+			getLogger().warn(e.getMessage());
+			return false;
+		}
+
+	}
+
+	public SearchPage reset() {
+		this.resetBtn.click();
+		return this;
+
+	}
+
+	public SearchPage submit() {
+		this.submitBtn.click();
+		return this;
+
+	}
 }
