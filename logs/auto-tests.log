@@ -7,7 +7,7 @@
 2016-05-02 17:50:51 DEBUG DefaultHttpClientConnectionOperator:138 - Connection established 127.0.0.1:52576<->127.0.0.1:7055
 2016-05-02 17:50:51 DEBUG DefaultManagedHttpClientConnection:90 - http-outgoing-0: set socket timeout to 10800000
 2016-05-02 17:50:51 DEBUG MainClientExec:255 - Executing request POST /hub/session HTTP/1.1
-2016-05-02 17:50:51 DEBUG 
+2016-05-02 17:50:51 DEBUG ;j;lj;j
 
 nnnMainClientExec:260 - Target auth state: UNCHALLENGED
 2016-05-02 17:50:51 DEBUG MainClientExec:266 - Proxy auth state: UNCHALLENGED
