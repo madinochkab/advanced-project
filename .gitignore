@@ -123,3 +123,4 @@ fabric.properties
 .settings
 bin/
 /target/
+/logs/*
